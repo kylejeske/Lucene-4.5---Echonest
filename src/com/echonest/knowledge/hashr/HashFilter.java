@@ -16,8 +16,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HashFilter extends TokenFilter {
 
-    protected final static Logger log = LoggerFactory.getLogger(
-            HashFilter.class);
+    protected final static Logger log = LoggerFactory.getLogger(HashFilter.class);
 
     private CharTermAttribute termAtt;
     
