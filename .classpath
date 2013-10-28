@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-core-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/apacheds-all-1.5.4.jar"/>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="com.echonest.knowledge.hashr"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/analysis/common/lucene-analyzers-common-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/queryparser/lucene-queryparser-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/queries/lucene-queries-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/demo/lucene-demo-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/core/lucene-core-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/facet/lucene-facet-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/misc/lucene-misc-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/sandbox/lucene-sandbox-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/lucene-4.5.0/demo/lucene-xml-query-demo.war"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-analysis-extras-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-solrj-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-velocity-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-uima-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-langid-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-cell-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-dataimporthandler-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-dataimporthandler-extras-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-clustering-4.5.0.jar"/>
+	<classpathentry kind="lib" path="/Users/kyle/sparky_local/solr-4.5.0/dist/solr-test-framework-4.5.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
