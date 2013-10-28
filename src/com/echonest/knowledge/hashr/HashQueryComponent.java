@@ -173,26 +173,27 @@ public class HashQueryComponent extends SearchComponent {
      * @param rb the response builder
      * @throws IOException
      */
-    private DocList eval(AtomicReader searcher, String[] queryTerms, ResponseBuilder rb, int rows, int start) throws IOException {
+    private DocList eval(SolrIndexSearcher reader, String[] queryTerms, 
+    			ResponseBuilder rb, int rows, int start) throws IOException {
         int hsize = start + rows;
         PriorityQueue<DocTermCount> h = new PriorityQueue<DocTermCount>(hsize);
         Set<String> termSet = new HashSet<String>();
-        
+
         //
         // Uniquify the query terms before processing to avoid multiple counts.
         termSet.addAll(Arrays.asList(queryTerms));
-        	
+        
         int[] docs = new int[32];
         int[] freqs = new int[32];
         int[] alld = new int[2048];
         int base = 0;
         int nHits = 0;
-        for(IndexReaderContext sub : searcher.getContext().children()) {
+        for(IndexReaderContext sub : reader.getIndexReader().getContext().children() ) {
             int p = 0;
             for(String t : termSet) {
-            	
+
             	Term ts = new Term("fp", t);
-            	DocsEnum td = searcher.termDocsEnum(ts);
+            	DocsEnum td = reader.getAtomicReader().termDocsEnum(ts);
 
         		int pos = td.freq();
         		int doc;
@@ -206,25 +207,7 @@ public class HashQueryComponent extends SearchComponent {
             		}
             		pos = td.freq();
             	}
-
-        		/*
-//            	DocsEnum docsEnum = searcher.getIndexReader().termDocsEnum(ts);            	
-//            	TermDocs td = searcher.termDocsEnum(new Term("fp", t));
-//            	TermDocs td = sub.termDocs(new Term("fp", t));
-            	int pos = td.read(docs, freqs);
-                while(pos != 0) {
-                    for(int i = 0; i < pos; i++) {
-                        if(p >= alld.length) {
-                            alld = Arrays.copyOf(alld, alld.length * 2);
-                        }
-                        alld[p++] = docs[i];
-                    }
-                    pos = td.read(docs, freqs);
-                }
-                td.close();
-*/
             }
-
             //
             // We only need to process this sub if we got some hits.
             if(p > 0) {
@@ -247,9 +230,7 @@ public class HashQueryComponent extends SearchComponent {
                 // Handle the last document that was collected.
                 heapCheck(h, hsize, curr+base, count);
             }
-            
-            int maxDoc = searcher.maxDoc();
-            base += maxDoc;            
+            base += reader.getIndexReader().maxDoc();
         }
 
         int outSize = Math.min(hsize, h.size());
