@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
+import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.common.SolrInputDocument;
 
 /**
@@ -78,7 +78,7 @@ public class Ingest {
 //        client.getState().setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(
 //                "solr-admin", "futureofmusic"));
 //        SolrServer solr = new CommonsHttpSolrServer(args[0], client);
-        SolrServer solr = new CommonsHttpSolrServer(args[0]);
+        SolrServer solr = new HttpSolrServer(args[0]);
         for(int i = 1; i < args.length; i++) {
             processFile(args[i], solr);
         }

@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.SolrServer;
-import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
+import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.params.CommonParams;
@@ -33,7 +33,7 @@ public class JQuery implements Runnable {
 
     public JQuery(List<String> l, String solr, String path) throws
             MalformedURLException {
-        this.solr = new CommonsHttpSolrServer(solr);
+        this.solr = new HttpSolrServer(solr);
         this.path = path;
         logger.info(String.format("path: %s", path));
         this.l = l;
